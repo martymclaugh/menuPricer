@@ -13,3 +13,25 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+$( document ).ready(function() {
+  newMenuForm();
+  cancelMenuForm();
+});
+
+
+
+newMenuForm = function(){
+  $('.create-menu').on('click', function(event){
+    event.preventDefault();
+  $('.new-menu').show();
+  $('.create-menu').hide();
+    })
+}
+
+cancelMenuForm = function(){
+  $('.cancel-menu').on('click', function(event){
+    event.preventDefault();
+    $('.new-menu').hide();
+    $('.create-menu').show();
+  })
+}

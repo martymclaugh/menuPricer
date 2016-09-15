@@ -3,9 +3,15 @@ class MenusController < ApplicationController
     render "index"
   end
   def create
-    menu = Menu.new(user_id: params[:id], name: params[:name])
-    if recipe.save
-      redirect_to user_menus_path
-    end
+    p params
+    p "****"
+    @menu = Menu.create(user_id: current_user.id, name: params[:name], food_cost_percentage: params[:percentage].to_f)
+    p @menu
+    redirect_to "/users/#{current_user.id}/menus"
+  end
+
+  private
+
+  def menu_params
   end
 end

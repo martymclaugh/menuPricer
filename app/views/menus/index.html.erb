@@ -1,24 +1,29 @@
-<button class="btn btn-info btn-block">New Menu</button>
-<div class="container">
-        <div class="row centered-form">
-        <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
-        	<div class="panel panel-default">
-        		<div class="panel-heading">
-			    		<h3 class="panel-title">Create New Menu</h3>
-			 			</div>
-			 			<div class="panel-body">
-                <form action="/users/<%= current_user.id %>/menus" method="POST">
+<button class="btn btn-info btn-lg create-menu">New Menu</button>
+<div class="container new-menu">
+  <div class="row centered-form">
+    <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+    	<div class="panel panel-default">
+    		<div class="panel-heading">
+	    		<h3 class="panel-title">Create New Menu</h3>
+	 			</div>
+	 			<div class="panel-body">
+            <form action="/users/<%= current_user.id %>/menus" method="POST">
+            <div class="field">
+            <label>Restaurant Name:</label>
+            <input type="text" name="name" class='form-control input-sm'></input>
+            <label>Food Cost Percentage:</label>
+            <input style="width:60px;" type="text" name="percentage" class='form-control input-sm'></input>%
+            <div class="actions">
+              <button class="btn btn-info btn-block">Create Menu</button>
+            </div><br />
+            <button class="btn btn-info btn-block cancel-menu">Cancel</button>
+	    	</div>
+  		</div>
+		</div>
+	</div>
+</div>
 
-                <div class="field">
-                <label>Restaurant Name:</label>
-                <input type="text" name="name" class='form-control input-sm'></input>
-                <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
+<% @menus.each do |menu| %>
 
-                <div class="actions">
-                  <button class="btn btn-info btn-block">Create Menu</button>
-                </div><br />
-			    	</div>
-	    		</div>
-    		</div>
-    	</div>
-    </div>
+<div>
+  <% end %>

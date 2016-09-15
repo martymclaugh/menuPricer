@@ -22,8 +22,7 @@
 		</div>
 	</div>
 </div>
-
+</div>
 <% @menus.each do |menu| %>
-
-<div>
-  <% end %>
+  <li><a href="/users/<%= params[:user_id] %>/menus/<%= menu.id %>"><%= menu.name %></li></a>
+<% end %>

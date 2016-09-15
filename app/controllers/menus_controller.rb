@@ -1,17 +1,16 @@
 class MenusController < ApplicationController
   def index
+    @user = User.find(params[:user_id])
+    @menus = @user.menus
     render "index"
   end
   def create
-    p params
-    p "****"
     @menu = Menu.create(user_id: current_user.id, name: params[:name], food_cost_percentage: params[:percentage].to_f)
-    p @menu
     redirect_to "/users/#{current_user.id}/menus"
   end
-
-  private
-
-  def menu_params
+  def show
+    @menu = Menu.find(params[:id])
+    render "show"
   end
+
 end
